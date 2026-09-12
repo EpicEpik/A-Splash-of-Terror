@@ -1,25 +1,121 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <Title>Test</Title>
-  </head>
-      <body>
-        <p id="output">Hello world!</p>
-       
-      <script src="script.js"></script>
-      </body>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>A Splash of Terror</title>
+<style>
+  body {
+    margin: 0;
+    background: #222;
+    overflow: hidden;
+  }
+
+  #title-screen {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  #car {
+    position: absolute;
+    left: 100px;
+    top: 300px;
+    width: 120px;
+    animation: bob 1s infinite alternate;
+  }
+
+  @keyframes bob {
+    from { transform: translateY(0); }
+    to { transform: translateY(-10px); }
+  }
+
+  #tree {
+    position: absolute;
+    left: 600px;
+    top: 250px;
+    width: 150px;
+  }
+
+  #flame {
+    position: absolute;
+    left: 600px;
+    top: 250px;
+    width: 150px;
+    display: none;
+  }
+
+  #play-btn {
+    position: absolute;
+    left: 100px;
+    top: 450px;
+    font-size: 40px;
+    padding: 10px 20px;
+    background: #4af;
+    border: none;
+    cursor: pointer;
+  }
+
+  #game {
+    display: none;
+    color: white;
+    font-size: 40px;
+    text-align: center;
+    padding-top: 200px;
+  }
+</style>
+</head>
+<body>
+
+<div id="title-screen">
+  <img id="car" src="car.png">
+  <img id="tree" src="tree.png">
+  <img id="flame" src="flame.png">
+  <button id="play-btn">PLAY</button>
+</div>
+
+<div id="game">
+  GAME STARTED!
+</div>
+
+<script>
+  const car = document.getElementById("car");
+  const tree = document.getElementById("tree");
+  const flame = document.getElementById("flame");
+  const playBtn = document.getElementById("play-btn");
+  const titleScreen = document.getElementById("title-screen");
+  const game = document.getElementById("game");
+
+  playBtn.addEventListener("click", () => {
+
+    car.style.animation = "none";
+
+    let x = 100;
+
+    const crash = setInterval(() => {
+      x += 15;
+      car.style.left = x + "px";
+
+      if (x >= 550) {
+        clearInterval(crash);
+
+        flame.style.display = "block";
+
+        titleScreen.style.background = "#fff";
+
+        setTimeout(() => {
+          titleScreen.style.transition = "1s";
+          titleScreen.style.opacity = 0;
+
+          setTimeout(() => {
+            titleScreen.style.display = "none";
+            game.style.display = "block";
+          }, 1000);
+
+        }, 300);
+      }
+    }, 30);
+  });
+</script>
+
+</body>
 </html>
-
-  const player = {
-  x: 50,
-  y: 50,
-  size: 45
-  speed: 5
-};
-
-    const playerElement = document.createElement("div");
-playerElement.style.position = "absolute";
-playerElement.style.width = player.size + "px";
-playerElement.style.height = player.size + "px";
-playerElement.style.background = "blue";
-document.getElementById("game").appendChild(playerElement);
