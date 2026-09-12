@@ -9,3 +9,17 @@
       <script src="script.js"></script>
       </body>
 </html>
+
+  const player = {
+  x: 50,
+  y: 50,
+  size: 45
+  speed: 5
+};
+
+    const playerElement = document.createElement("div");
+playerElement.style.position = "absolute";
+playerElement.style.width = player.size + "px";
+playerElement.style.height = player.size + "px";
+playerElement.style.background = "blue";
+document.getElementById("game").appendChild(playerElement);
