@@ -6,7 +6,7 @@
   <style>
     body {
       background: white;
-      font-family: monosospace;
+      font-family: monospace;
     }
 
     #hospital {
@@ -26,6 +26,7 @@
 
     #dialogueText {
       font-size: 20px;
+      white-space: pre-line;
     }
   </style>
 </head>
@@ -39,18 +40,24 @@
 
   <script>
     const dialogue = [
-      "Nurse: You're awake… finally.",
-      "You: My head… what happened?",
-      "Nurse: You were found outside Alone.Online HQ. Unconscious.",
-      "You: Alone.Online…? Why would I be there?",
-      "Nurse: That's what we want to know."
+      "Nurse: Lauren? Lauren, wake up.",
+      "You: W-Where am I? Where are my parents?",
+      "Nurse: You were in a car accident, sweetie.",
+      "You: My parents!?",
+      "Nurse: I'm so sorry, sweetie, but, they passed in the accident.",
+      "You: What!?",
+      "Nurse: We're going to have to send you to the orph-",
+      "You: No!!",
+      "Nurse: Lauren, come back! You can't just LEAVE!"
     ];
 
     let index = 0;
 
     function nextLine() {
-      document.getElementById("dialogueText").textContent = dialogue[index];
-      index++;
+      if (index < dialogue.length) {
+        document.getElementById("dialogueText").textContent = dialogue[index];
+        index++;
+      }
     }
 
     nextLine();
