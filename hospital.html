@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hospital Scene</title>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      background: white;
+      font-family: monosospace;
+    }
+
+    #hospital {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #dialogueBox {
+      background: #eee;
+      padding: 20px;
+      border: 3px solid black;
+      width: 600px;
+    }
+
+    #dialogueText {
+      font-size: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="hospital">
+    <div id="dialogueBox">
+      <p id="dialogueText"></p>
+    </div>
+  </div>
+
+  <script>
+    const dialogue = [
+      "Nurse: You're awake… finally.",
+      "You: My head… what happened?",
+      "Nurse: You were found outside Alone.Online HQ. Unconscious.",
+      "You: Alone.Online…? Why would I be there?",
+      "Nurse: That's what we want to know."
+    ];
+
+    let index = 0;
+
+    function nextLine() {
+      document.getElementById("dialogueText").textContent = dialogue[index];
+      index++;
+    }
+
+    nextLine();
+
+    document.addEventListener("click", nextLine);
+  </script>
+</body>
+</html>
