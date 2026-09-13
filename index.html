@@ -6,10 +6,35 @@
 <style>
   body {
     margin: 0;
-    background: #222;
     overflow: hidden;
   }
+body {
+  background: white;
+}
 
+#scene {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#flash {
+  width: 150px;
+  filter: hue-rotate(-50deg) saturate(300%);
+}
+
+#tree {
+  width: 150px;
+  margin-left: 40px;
+}
+
+#car {
+  width: 200px;
+  margin-left: 40px;
+}
+
+  
   #title-screen {
     position: relative;
     width: 100vw;
